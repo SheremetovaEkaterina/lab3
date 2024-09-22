@@ -45,9 +45,11 @@ public class AboutStudents extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM classmates", null);
         if (cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") String fio = cursor.getString(cursor.getColumnIndex("FIO"));
+                @SuppressLint("Range") String lastName = cursor.getString(cursor.getColumnIndex("LastName"));
+                @SuppressLint("Range") String firstName = cursor.getString(cursor.getColumnIndex("FirstName"));
+                @SuppressLint("Range") String middleName = cursor.getString(cursor.getColumnIndex("MiddleName"));
                 @SuppressLint("Range") String addedTime = cursor.getString(cursor.getColumnIndex("added_time"));
-                studentList.add(fio + " - " + addedTime);
+                studentList.add(lastName + " " + firstName + " " + middleName + " - " + addedTime);
             } while (cursor.moveToNext());
         }
         cursor.close();
