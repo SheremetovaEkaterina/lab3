@@ -39,9 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // Добавление новой записи
         btnAddRecord.setOnClickListener(v -> {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("LastName", "Новый");
-            contentValues.put("FirstName", "Одногруппник");
-            contentValues.put("MiddleName", "Крутышкович");
+            contentValues.put("FIO", "Новый Одногруппник");
             db.insert("classmates", null, contentValues);
         });
 
@@ -56,9 +54,7 @@ public class MainActivity extends AppCompatActivity {
         if (cursor != null && cursor.moveToFirst()) {
             @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("ID"));
             ContentValues contentValues = new ContentValues();
-            contentValues.put("LastName", "Иванов");
-            contentValues.put("FirstName", "Иван");
-            contentValues.put("MiddleName", "Иванович");
+            contentValues.put("FIO", "Иванов Иван Иванович");
             db.update("classmates", contentValues, "ID = ?", new String[]{String.valueOf(id)});
         }
         cursor.close();
