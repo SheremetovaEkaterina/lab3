@@ -20,7 +20,7 @@
 Меню состоит из 3 кнопок:
 - **"посмотреть"**. По тапу открывается [Экран вывода данных из таблицы "Одногруппники"](#activity2).
 - **"добавить"**. По тапу добавляется новая строка в таблицу "Одногруппники":
-  - для ветки `main`
+  - для ветки `master`
     -  ``` java
         btnAddRecord.setOnClickListener(v -> {
             ContentValues contentValues = new ContentValues();
@@ -44,7 +44,7 @@
             updateLastRecord();
         });
     ```
-   - для ветки `main`
+   - для ветки `master`
      -  ``` java
         private void updateLastRecord() {
           Cursor cursor = db.rawQuery("SELECT * FROM classmates ORDER BY ID DESC LIMIT 1", null);
@@ -81,7 +81,7 @@
 ### <a id="activity2"> Экран вывода данных из таблицы "Одногруппники" </a>
 На этом экране также происходит обращение к БД.
 
-#### Для ветки `main`
+#### Для ветки `master`
 Таблица "Одногруппники" состоит из полей:
 - ID
 - ФИО
